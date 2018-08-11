@@ -11,7 +11,6 @@ Get-ChildItem -File -Recurse $inputFolder | Sort-Object | ForEach-Object {
     # $hasVideo = $cmdOutput|Select-String -Pattern "Video:" #is there a video stream
     $isEnglishAudio = $cmdOutput | Select-String -Pattern "\(eng\): Audio:" -Quiet #known english audio
     $isUnknownAudio = $cmdOutput | Select-String -Pattern "(\(und\): Audio:)" -Quiet #known 'unknown' audio
-    $hasAudioLanguageTag = $cmdOutput | Select-String -Pattern "(\(\w*\):){1}(\s(Audio))" -Quiet #is there a standard language?
 
     if($isUnknownAudio){
         #so far, most videos with no labled audio track are english
